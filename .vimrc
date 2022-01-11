@@ -42,3 +42,74 @@ endif
 
 " 컬러 스킴 사용
 colorscheme jellybeans
+
+" 번들 사용
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+
+
+Plugin 'gmarik/Vundle.vim'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin' " nerdtree installation
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'airblade/vim-gitgutter' " vim with git status(added, modified, and removed lines)
+Plugin 'tpope/vim-fugitive' " vim with git command(e.g., Gdiff)
+Plugin 'vim-airline/vim-airline' " vim status bar
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'blueyed/vim-diminactive'
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+set t_Co=256
+
+" for ctags
+map <c-]> g<c-]>
+set tags=tags;
+
+" for jellybeans
+colorscheme jellybeans
+
+" for taglist
+nmap <F8> :Tagbar<CR>
+
+" for indent guide
+let g:indentguides_spacechar = '┆'
+let g:indentguides_tabchar = '|'
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level=2
+let g:indent_guides_guide_size=1
+
+" for vim-airline
+let g:airline#extensions#tabline#enabled = 1 " turn on buffer list
+let g:airline_theme='hybrid'
+set laststatus=2 " turn on bottom bar
+let mapleader = ","
+nnoremap <leader>q :bp<CR>
+nnoremap <leader>w :bn<CR>
+
+" for blueyed/vim-diminactive
+let g:diminactive_enable_focus = 1
+
