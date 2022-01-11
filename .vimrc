@@ -1,13 +1,15 @@
-"
-"
 " -------------------------------------------------------------------------
 "	MY KEYMAP SETTING 
 "
 "	<F3>	: toggle paste mode
-"   <F10>	: toggle NERDTRee
+"	
+"	<\q>    : nerdtree + air-line -> open prev file
+"	<\w>    : nerdtree + air-line -> open next file
+"
+"   <F10>	: toggle nerdtree
 "   <F11>	: linux full screenmode
 "   <F12>	: toggle Tagbar
-"   
+"	 
 "
 " -------------------------------------------------------------------------
 "
@@ -115,12 +117,15 @@ let g:indentguides_tabchar = '|'
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
+let g:airline_powerline_fonts = 1
 
 " for vim-airline 이 플러그인은 창 상단과 하단에 정보들을 표시해줍니다
 let g:airline#extensions#tabline#enabled = 1 " turn on buffer list
 let g:airline_theme='hybrid'
-set laststatus=2 " turn on bottom bar
-let mapleader = ","
+"let g:airline_section_b = '%{strftime("%c")}'
+"let g:airline_section_y = 'BN: %{bufnr("%")}'
+"set laststatus=2 " turn on bottom bar
+"let mapleader = \","
 nnoremap <leader>q :bp<CR>
 nnoremap <leader>w :bn<CR>
 
@@ -132,5 +137,3 @@ let g:diminactive_enable_focus = 1
 
 " pear-tree 자동 괄호 완성 플러그인
 let g:pear_tree_repeatable_expand = 0 "오른쪽 제거 기능을 끔"
-
-
