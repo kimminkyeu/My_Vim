@@ -34,7 +34,7 @@ set history=256
 set laststatus=2 " 상태바 표시 항상
 set visualbell " 키 잘못 누르면 화면 프레시
 
-set clipboard=unnamed " this sets default paste buffer to X's clipboard
+set clipboard=unnamedplus " if LINUX, use unamedplus. (else use unamed) this sets default paste buffer to X's clipboard
 set pastetoggle=<F3>  " 복사 붙여넣기 모드 Toogle = <F3> --> 복붙시 계단현상 방지
 
 set shiftwidth=4 " 자동 들여쓰기 너비 설정
@@ -77,6 +77,7 @@ Plugin 'vim-airline/vim-airline' " vim status bar
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'blueyed/vim-diminactive'
 Plugin 'tmsvg/pear-tree' " 괄호를 자동으로 닫아주는 플러그인
+Plugin 'shirk/vim-gas'  "ASM syntax highlite Plugin
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -123,22 +124,13 @@ let mapleader = ","
 nnoremap <leader>q :bp<CR>
 nnoremap <leader>w :bn<CR>
 
-" for blueyed/vim-diminactive 이 플러그인은 현재 커서의 포커스가 있는 창을
-" 표시합니다
-let g:diminactive_enable_focus = 1
-
-" pair-tree 자동 괄호 완성 플러그인
-let g:pear_tree_repeatable_expand = 0 "오른쪽 제거 기능을 끔"
-
 "+ 다른 플러그인에서 변경하기 때문에, 제일 하단에 아래 모드안보이기 세팅을 해줘야 한다.
 set noshowmode "vim airline 플러그인에서 모드를 알려주기 때문에 해제합니다.
 
+" for blueyed/vim-diminactive 이 플러그인은 현재 커서의 포커스가 있는 창을 표시합니다
+let g:diminactive_enable_focus = 1
 
-
-
-
-
-
-
+" pear-tree 자동 괄호 완성 플러그인
+let g:pear_tree_repeatable_expand = 0 "오른쪽 제거 기능을 끔"
 
 
