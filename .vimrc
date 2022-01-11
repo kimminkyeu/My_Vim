@@ -76,6 +76,7 @@ Plugin 'tpope/vim-fugitive' " vim with git command(e.g., Gdiff)
 Plugin 'vim-airline/vim-airline' " vim status bar
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'blueyed/vim-diminactive'
+Plugin 'tmsvg/pear-tree' " 괄호를 자동으로 닫아주는 플러그인
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -126,7 +127,8 @@ nnoremap <leader>w :bn<CR>
 " 표시합니다
 let g:diminactive_enable_focus = 1
 
-
+" pair-tree 자동 괄호 완성 플러그인
+let g:pear_tree_repeatable_expand = 0 "오른쪽 제거 기능을 끔"
 
 
 
