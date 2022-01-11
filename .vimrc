@@ -15,6 +15,7 @@
 set encoding=utf-8
 set fileencodings=utf-8,cp949 "utf-8이 실패하면, cp949(en)로 인코딩
 
+set noshowmode "vim airline 플러그인에서 모드를 알려주기 때문에 해제합니다.
 set hlsearch " 검색어 하이라이팅
 set nu " 줄번호
 set scrolloff=2
