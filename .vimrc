@@ -15,7 +15,6 @@
 set encoding=utf-8
 set fileencodings=utf-8,cp949 "utf-8이 실패하면, cp949(en)로 인코딩
 
-set noshowmode "vim airline 플러그인에서 모드를 알려주기 때문에 해제합니다.
 set hlsearch " 검색어 하이라이팅
 set nu " 줄번호
 set scrolloff=2
@@ -131,6 +130,8 @@ let g:diminactive_enable_focus = 1
 " pair-tree 자동 괄호 완성 플러그인
 let g:pear_tree_repeatable_expand = 0 "오른쪽 제거 기능을 끔"
 
+"+ 다른 플러그인에서 변경하기 때문에, 제일 하단에 아래 모드안보이기 세팅을 해줘야 한다.
+set noshowmode "vim airline 플러그인에서 모드를 알려주기 때문에 해제합니다.
 
 
 
