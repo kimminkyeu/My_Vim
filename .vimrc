@@ -1,10 +1,15 @@
 " -------------------------------------------------------------------------
 "	MY KEYMAP SETTING 
+"   
+"   <leader> : ','
+"
+"   ,c<space>	: toggle NERDComment
+"   ,cs		: NERDSexyComment
 "
 "	<F3>	: toggle paste mode
 "	
-"	<\q>    : nerdtree + air-line -> open prev file
-"	<\w>    : nerdtree + air-line -> open next file
+"	<,q>    : nerdtree + air-line -> open prev file
+"	<,w>    : nerdtree + air-line -> open next file
 "
 "   <F10>	: toggle nerdtree
 "   <F11>	: linux full screenmode
@@ -67,6 +72,7 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim " set the runtime path to include Vundle and initialize
 call vundle#begin()
 
+Plugin 'preservim/nerdcommenter' " NERDComment plugin
 Plugin 'gmarik/Vundle.vim'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'majutsushi/tagbar'
@@ -125,7 +131,8 @@ let g:airline_theme='hybrid'
 "let g:airline_section_b = '%{strftime("%c")}'
 "let g:airline_section_y = 'BN: %{bufnr("%")}'
 "set laststatus=2 " turn on bottom bar
-"let mapleader = \","
+
+let mapleader = ","
 nnoremap <leader>q :bp<CR>
 nnoremap <leader>w :bn<CR>
 
@@ -137,3 +144,23 @@ let g:diminactive_enable_focus = 1
 
 " pear-tree 자동 괄호 완성 플러그인
 let g:pear_tree_repeatable_expand = 0 "오른쪽 제거 기능을 끔"
+
+" NERDComment plugin setting
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+" customize keymapping
+"
+map <Leader>c<space> 	<plug>NERDCommenterToggle
+map <Leader>cs 		<plug>NERDCommenterSexy
