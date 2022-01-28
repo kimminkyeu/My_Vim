@@ -1,7 +1,5 @@
 " -------------------------------------------------------------------------
 "	MY KEYMAP SETTING 
-"   
-"   <leader> : ','
 "
 "   ,c<space>	: toggle NERDComment
 "   ,cs		: NERDSexyComment
@@ -72,6 +70,8 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim " set the runtime path to include Vundle and initialize
 call vundle#begin()
 
+Plugin 'vim-syntastic/syntastic' " Error Checking Engine
+Plugin 'sheerun/vim-polyglot'    " Syntax Highlite pack
 Plugin 'preservim/nerdcommenter' " NERDComment plugin
 Plugin 'gmarik/Vundle.vim'
 Plugin 'nanotech/jellybeans.vim'
@@ -164,3 +164,16 @@ let g:NERDTrimTrailingWhitespace = 1
 "
 map <Leader>c<space> 	<plug>NERDCommenterToggle
 map <Leader>cs 		<plug>NERDCommenterSexy
+
+" for Syntastic Error Checking Engine
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+
+
