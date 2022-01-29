@@ -194,5 +194,6 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-
+" for YouCompleteMe Auto Completion 
+set completeopt-=preview   " unset preview window
 
