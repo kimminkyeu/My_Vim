@@ -1,21 +1,23 @@
 " -------------------------------------------------------------------------
-"	MY KEYMAP SETTING 
-"
-"   ,c<space>	: toggle NERDComment
-"   ,cs		: NERDSexyComment
-"
-"	<F3>	: toggle paste mode
-"	
-"	<,q>    : nerdtree + air-line -> open prev file
-"	<,w>    : nerdtree + air-line -> open next file
-"
-"   <F10>	: toggle nerdtree
-"   <F11>	: linux full screenmode
-"   <F12>	: toggle Tagbar
-"	 
-"
+"	MY KEYMAP SETTING													  |
+"																		  |
+"   ,c<space>	: toggle NERDComment									  |
+"   ,cs		: NERDSexyComment											  |
+"																		  |
+"	<F3>	: toggle paste mode											  |
+"																		  |
+"	<,q>    : nerdtree + air-line -> open prev file						  |
+"	<,w>    : nerdtree + air-line -> open next file						  |	
+"																		  |
+"   <F10>	: toggle nerdtree											  |
+"   <F11>	: linux full screenmode										  |
+"   <F12>	: toggle Tagbar												  |
+"																		  |
+"   <tab>   : youcompleteme auto complete selection						  |
+"																		  |
 " -------------------------------------------------------------------------
 "
+let mapleader = ","			 " changing default leader-key <\> to <,>
 "한글 세팅"
 set encoding=utf-8
 set fileencodings=utf-8,cp949 "utf-8이 실패하면, cp949(en)로 인코딩
@@ -65,27 +67,45 @@ endif
 
 " Vundle Plugin Setting starts here
 " ----------------------------------------------------------------------------------------------
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible				 " be iMproved, required
+filetype off					 " required
 set rtp+=~/.vim/bundle/Vundle.vim " set the runtime path to include Vundle and initialize
 call vundle#begin()
 
+Plugin 'valloric/youcompleteme'  " A Code-completion engine
+				" TODO: installation may require ycm. please check
+				" [YouCompleteMe] github page for further information.
+
 Plugin 'vim-syntastic/syntastic' " Error Checking Engine
+
 Plugin 'sheerun/vim-polyglot'    " Syntax Highlite pack
+
 Plugin 'preservim/nerdcommenter' " NERDComment plugin
+
 Plugin 'gmarik/Vundle.vim'
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'majutsushi/tagbar'
+
+Plugin 'nanotech/jellybeans.vim' " jellybeans color theme
+
+Plugin 'majutsushi/tagbar'       " for ctag view window
+
 Plugin 'scrooloose/nerdtree'
+
 Plugin 'Xuyuanp/nerdtree-git-plugin' " nerdtree installation
+
 Plugin 'nathanaelkane/vim-indent-guides'
+
 Plugin 'airblade/vim-gitgutter' " vim with git status(added, modified, and removed lines)
+
 Plugin 'tpope/vim-fugitive' " vim with git command(e.g., Gdiff)
+
 Plugin 'vim-airline/vim-airline' " vim status bar
 Plugin 'vim-airline/vim-airline-themes'
+
 Plugin 'blueyed/vim-diminactive'
+
 Plugin 'tmsvg/pear-tree' " 괄호를 자동으로 닫아주는 플러그인
-Plugin 'shirk/vim-gas'  "ASM syntax highlite Plugin
+
+Plugin 'shirk/vim-gas'  "Assembly language syntax highlite Plugin
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -132,8 +152,7 @@ let g:airline_theme='hybrid'
 "let g:airline_section_y = 'BN: %{bufnr("%")}'
 "set laststatus=2 " turn on bottom bar
 
-let mapleader = ","
-nnoremap <leader>q :bp<CR>
+nnoremap <leader>q :bp<CR>  	 
 nnoremap <leader>w :bn<CR>
 
 "+ 다른 플러그인에서 변경하기 때문에, 제일 하단에 아래 모드안보이기 세팅을 해줘야 한다.
