@@ -10,7 +10,7 @@
 "	<,q>    : nerdtree + air-line -> open prev file						  |
 "	<,w>    : nerdtree + air-line -> open next file						  |	
 "
-"	<F8>    : toggle Error messege window(syntatic)
+"	:lopen , :lclose : toggle Error messege window(syntatic)
 "
 "   <F10>	: toggle nerdtree											  |
 "   <F11>	: linux full screenmode										  |
