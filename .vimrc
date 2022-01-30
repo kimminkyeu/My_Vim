@@ -1,3 +1,4 @@
+" A
 " -------------------------------------------------------------------------
 "	MY KEYMAP SETTING													  |
 "																		  |
@@ -8,7 +9,9 @@
 "																		  |
 "	<,q>    : nerdtree + air-line -> open prev file						  |
 "	<,w>    : nerdtree + air-line -> open next file						  |	
-"																		  |
+"
+"	<F8>    : toggle Error messege window(syntatic)
+"
 "   <F10>	: toggle nerdtree											  |
 "   <F11>	: linux full screenmode										  |
 "   <F12>	: toggle Tagbar												  |
@@ -188,11 +191,15 @@ map <Leader>cs 		<plug>NERDCommenterSexy
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
+ 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+ 
+let g:syntastic_cpp_compiler = 'g++'
+let g:syntastic_cpp_compiler_options = "-std=c++11 -Wall -Wextra -Wpedantic"
+let g:syntastic_c_compiler_options = "-std=c11 -Wall -Wextra -Wpedantic"
 
 " for YouCompleteMe Auto Completion 
 set completeopt-=preview   " unset preview window
