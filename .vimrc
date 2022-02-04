@@ -1,4 +1,8 @@
-" 
+"
+"
+"
+" Waning!!! if you are using 42 Cluster Mac, unset line:256 option !!
+"
 " -----------------------------------------------------------
 "   ,c<space>	: toggle NERDComment									  
 "   ,cs		: NERDSexyComment									  
@@ -78,6 +82,9 @@ call vundle#begin()
 Plugin 'valloric/youcompleteme'  " A Code-completion engine
 				" TODO: installation may require ycm. please check
 				" [YouCompleteMe] github page for further information.
+
+Plugin '42Paris/42header'		 " 42 header auto insertion plugin
+Plugin 'alexandregv/norminette-vim' " 42 Norminette checker with synstatic
 
 Plugin 'vim-syntastic/syntastic' " Error Checking Engine
 
@@ -182,10 +189,14 @@ let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
 let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
-" customize keymapping
 "
+" customize keymapping for NerdCommenter
 map <Leader>c<space> 	<plug>NERDCommenterToggle
 map <Leader>cs 		<plug>NERDCommenterSexy
+
+" 42 header email setting
+let g:user42 = 'minkyeki'
+let g:mail42 = 'minkyeki@42SEOUL.KR'
 
 " for Syntastic Error Checking Engine
 set statusline+=%#warningmsg#
@@ -203,4 +214,34 @@ let g:syntastic_c_compiler_options = "-std=c11 -Wall -Wextra -Wpedantic"
 
 " for YouCompleteMe Auto Completion 
 set completeopt-=preview   " unset preview window
+
+
+" for norminette checker in vim (리눅스에서 안되서 그냥 삭제)
+" ------------------------------------------------------------
+" " Enable norminette-vim (and gcc)
+" let g:syntastic_c_checkers = ['norminette', 'gcc']
+" let g:syntastic_aggregate_errors = 1
+"
+" " Set the path to norminette (do no set if using norminette of 42 mac)
+" let g:syntastic_c_norminette_exec = '~/.norminette/norminette.rb'
+"
+" " Support headers (.h)
+" let g:c_syntax_for_h = 1
+" let g:syntastic_c_include_dirs = ['include', '../include', '../../include', 'libft', '../libft/include', '../../libft/include']
+"
+" " Pass custom arguments to norminette (this one ignores 42header)
+" let g:syntastic_c_norminette_args = '-R CheckTopCommentHeader'
+"
+" " Check errors when opening a file (disable to speed up startup time)
+" let g:syntastic_check_on_open = 1
+"
+" " Enable error list
+" let g:syntastic_always_populate_loc_list = 1
+"
+" " Automatically open error list
+" let g:syntastic_auto_loc_list = 1
+"
+" " Skip check when closing
+" let g:syntastic_check_on_wq = 0
+"
 
