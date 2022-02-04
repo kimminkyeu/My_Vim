@@ -1,24 +1,24 @@
-" A
-" -------------------------------------------------------------------------
-"	MY KEYMAP SETTING													  |
-"																		  |
-"   ,c<space>	: toggle NERDComment									  |
-"   ,cs		: NERDSexyComment											  |
-"																		  |
-"	<F3>	: toggle paste mode											  |
-"																		  |
-"	<,q>    : nerdtree + air-line -> open prev file						  |
-"	<,w>    : nerdtree + air-line -> open next file						  |	
+" 
+" -----------------------------------------------------------
+"   ,c<space>	: toggle NERDComment									  
+"   ,cs		: NERDSexyComment									  
 "
-"	:lopen , :lclose : toggle Error messege window(syntatic)
+"	<F3>	: toggle paste mode											  
 "
-"   <F10>	: toggle nerdtree											  |
-"   <F11>	: linux full screenmode										  |
-"   <F12>	: toggle Tagbar												  |
-"																		  |
-"   <tab>   : youcompleteme auto complete selection						  |
-"																		  |
-" -------------------------------------------------------------------------
+"	<,q>    : nerdtree + air-line -> open prev file						  
+"	<,w>    : nerdtree + air-line -> open next file						  
+"	
+"	<F8>    : toggle Error messege window(syntatic)
+"
+"   <F9>	: toogle nerdtree (left window) 
+"						# to represh nerdtree, press <r>
+"
+"   <F10>	: toggle tagbar (right window)
+"
+"   <F11>	: linux full screenmode										  
+"																		  
+"   <tab>   : youcompleteme auto complete selection						  
+" -----------------------------------------------------------
 "
 let mapleader = ","			 " changing default leader-key <\> to <,>
 "한글 세팅"
@@ -133,11 +133,11 @@ map <c-]> g<c-]>
 set tags=tags;
 
 " for NERDTree
-nmap <F10> :NERDTreeToggle<CR>  
+nmap <F9> :NERDTreeToggle<CR>  
 let g:NERDTreeWinSize=30 
 
 " for taglist <F12>
-nmap <F12> :TagbarToggle<CR>  
+nmap <F10> :TagbarToggle<CR>  
 let g:tagbar_width=30  " 태그바 넓이 설정
 
 " for indent guide 이 플러그인은 들여쓰기 세로줄을 만들어줍니다.
