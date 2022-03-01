@@ -1,6 +1,3 @@
-"
-"
-"
 " Waning!!! if you are using 42 Cluster Mac, unset line:256 option !!
 "
 " -----------------------------------------------------------
@@ -79,6 +76,8 @@ filetype off					 " required
 set rtp+=~/.vim/bundle/Vundle.vim " set the runtime path to include Vundle and initialize
 call vundle#begin()
 
+
+
 Plugin 'valloric/youcompleteme'  " A Code-completion engine
 				" TODO: installation may require ycm. please check
 				" [YouCompleteMe] github page for further information.
@@ -94,7 +93,8 @@ Plugin 'preservim/nerdcommenter' " NERDComment plugin
 
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'nanotech/jellybeans.vim' " jellybeans color theme
+" Plugin 'nanotech/jellybeans.vim' "color theme
+Plugin 'morhetz/gruvbox'
 
 Plugin 'majutsushi/tagbar'       " for ctag view window
 
@@ -132,8 +132,11 @@ filetype plugin indent on    " required
 
 set t_Co=256 " 숫자 256의 color 표현 (8bit)
 
-" for jellybeans
-colorscheme jellybeans
+" 테마 설정은 여기서!
+"colorscheme jellybeans
+autocmd vimenter * ++nested colorscheme gruvbox
+set bg=dark
+highlight Normal ctermbg=black ctermfg=white
 
 " for ctags
 map <c-]> g<c-]>
