@@ -82,9 +82,6 @@ Plugin 'valloric/youcompleteme'  " A Code-completion engine
 				" TODO: installation may require ycm. please check
 				" [YouCompleteMe] github page for further information.
 
-Plugin '42Paris/42header'		 " 42 header auto insertion plugin
-Plugin 'alexandregv/norminette-vim' " 42 Norminette checker with synstatic
-
 Plugin 'vim-syntastic/syntastic' " Error Checking Engine
 
 Plugin 'sheerun/vim-polyglot'    " Syntax Highlite pack
@@ -139,12 +136,9 @@ set termguicolors
 autocmd vimenter * ++nested colorscheme gruvbox
 set background=dark
 let g:gruvbox_contrast_dark="medium"
-"highlight Normal ctermbg=black ctermfg=white
 
 " Vim indentline
 set list lcs=tab:\¦\ 
-
-
 
 " for ctags
 map <c-]> g<c-]>
@@ -157,8 +151,6 @@ let g:NERDTreeWinSize=30
 " for taglist <F12>
 nmap <F10> :TagbarToggle<CR>  
 let g:tagbar_width=30  " 태그바 넓이 설정
-
-
 
 " for vim-airline 이 플러그인은 창 상단과 하단에 정보들을 표시해줍니다
 let g:airline_powerline_fonts = 1
@@ -200,10 +192,6 @@ let g:NERDTrimTrailingWhitespace = 1
 map <Leader>c<space> 	<plug>NERDCommenterToggle
 map <Leader>cs 		<plug>NERDCommenterSexy
 
-" 42 header email setting
-let g:user42 = 'minkyeki'
-let g:mail42 = 'minkyeki@42SEOUL.KR'
-
 " for Syntastic Error Checking Engine
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -215,39 +203,11 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
  
 let g:syntastic_cpp_compiler = 'g++'
-let g:syntastic_cpp_compiler_options = "-std=c++11 -Wall -Wextra -Wpedantic"
-let g:syntastic_c_compiler_options = "-std=c11 -Wall -Wextra -Wpedantic"
+let g:syntastic_cpp_compiler_options = "-std=c++11 -Wall -Wextra -Wpedantic -Werror"
+let g:syntastic_c_compiler_options = "-std=c11 -Wall -Wextra -Wpedantic -Werror"
 
 " for YouCompleteMe Auto Completion 
 set completeopt-=preview   " unset preview window
-
-
-" for norminette checker in vim (리눅스에서 안되서 그냥 삭제)
-" ------------------------------------------------------------
-" " Enable norminette-vim (and gcc)
-" let g:syntastic_c_checkers = ['norminette', 'gcc']
-" let g:syntastic_aggregate_errors = 1
-"
-" " Set the path to norminette (do no set if using norminette of 42 mac)
-" let g:syntastic_c_norminette_exec = '~/.norminette/norminette.rb'
-"
-" " Support headers (.h)
-" let g:c_syntax_for_h = 1
-" let g:syntastic_c_include_dirs = ['include', '../include', '../../include', 'libft', '../libft/include', '../../libft/include']
-"
-" " Pass custom arguments to norminette (this one ignores 42header)
-" let g:syntastic_c_norminette_args = '-R CheckTopCommentHeader'
-"
-" " Check errors when opening a file (disable to speed up startup time)
-" let g:syntastic_check_on_open = 1
-"
-" " Enable error list
-" let g:syntastic_always_populate_loc_list = 1
-"
-" " Automatically open error list
-" let g:syntastic_auto_loc_list = 1
-"
-" " Skip check when closing
-" let g:syntastic_check_on_wq = 0
-"
-
+" YCM 과 syntastic 을 모두 사용할 경우 loc window 가 안켜지는 문제가 있다.
+" 따라서 하단의 옵션을 넣어주면 둘다 잘 작동함. 
+let g:ycm_show_diagnostics_ui = 0
