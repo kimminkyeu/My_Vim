@@ -102,7 +102,8 @@ Plugin 'scrooloose/nerdtree'
 
 Plugin 'Xuyuanp/nerdtree-git-plugin' " nerdtree installation
 
-Plugin 'nathanaelkane/vim-indent-guides'
+"Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'Yggdroot/indentLine' " 사용해보니 이게 더 나음
 
 Plugin 'airblade/vim-gitgutter' " vim with git status(added, modified, and removed lines)
 
@@ -134,9 +135,16 @@ set t_Co=256 " 숫자 256의 color 표현 (8bit)
 
 " 테마 설정은 여기서!
 "colorscheme jellybeans
+set termguicolors
 autocmd vimenter * ++nested colorscheme gruvbox
-set bg=dark
-highlight Normal ctermbg=black ctermfg=white
+set background=dark
+let g:gruvbox_contrast_dark="medium"
+"highlight Normal ctermbg=black ctermfg=white
+
+" Vim indentline
+set list lcs=tab:\¦\ 
+
+
 
 " for ctags
 map <c-]> g<c-]>
@@ -150,15 +158,10 @@ let g:NERDTreeWinSize=30
 nmap <F10> :TagbarToggle<CR>  
 let g:tagbar_width=30  " 태그바 넓이 설정
 
-" for indent guide 이 플러그인은 들여쓰기 세로줄을 만들어줍니다.
-let g:indentguides_spacechar = '┆'
-let g:indentguides_tabchar = '|'
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_start_level=2
-let g:indent_guides_guide_size=1
-let g:airline_powerline_fonts = 1
+
 
 " for vim-airline 이 플러그인은 창 상단과 하단에 정보들을 표시해줍니다
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1 " turn on buffer list
 let g:airline_theme='hybrid'
 "let g:airline_section_b = '%{strftime("%c")}'
