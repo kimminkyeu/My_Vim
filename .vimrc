@@ -50,7 +50,7 @@ set history=256
 set laststatus=2 " 상태바 표시 항상
 set visualbell " 키 잘못 누르면 화면 프레시
 
-set clipboard=unnamed " if LINUX, use unamedplus. (else use unamed) this sets default paste buffer to X's clipboard
+set clipboard=unnamedplus " if LINUX, use unamedplus. (else use unamed) this sets default paste buffer to X's clipboard
 set pastetoggle=<F3>  " 복사 붙여넣기 모드 Toogle = <F3> --> 복붙시 계단현상 방지
 
 set shiftwidth=4 " 자동 들여쓰기 너비 설정
