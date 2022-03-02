@@ -1,6 +1,11 @@
 " Waning!!! if you are using 42 Cluster Mac, unset line:256 option !!
 "
 " -----------------------------------------------------------
+"
+"    ctrl + wf	: 사용하고 있는 헤더 파일 열기 
+"    ctrl + ]	: 해당 함수 정의 파일로 이동 (ctags -R 로 생성이 되어있어야함)
+"    ctrl + t   : 함수 정의 들어간 후 다시 돌아오기 
+"
 "   ,c<space>	: toggle NERDComment									  
 "   ,cs		: NERDSexyComment									  
 "
@@ -45,7 +50,7 @@ set history=256
 set laststatus=2 " 상태바 표시 항상
 set visualbell " 키 잘못 누르면 화면 프레시
 
-set clipboard=unnamedplus " if LINUX, use unamedplus. (else use unamed) this sets default paste buffer to X's clipboard
+set clipboard=unnamed " if LINUX, use unamedplus. (else use unamed) this sets default paste buffer to X's clipboard
 set pastetoggle=<F3>  " 복사 붙여넣기 모드 Toogle = <F3> --> 복붙시 계단현상 방지
 
 set shiftwidth=4 " 자동 들여쓰기 너비 설정
