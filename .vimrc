@@ -50,7 +50,7 @@ set history=256
 set laststatus=2 " 상태바 표시 항상
 set visualbell " 키 잘못 누르면 화면 프레시
 
-set clipboard=unnamedplus " if LINUX, use unamedplus. (else use unamed) this sets default paste buffer to X's clipboard
+set clipboard=unnamed " if LINUX, use unamedplus. (else use unamed) this sets default paste buffer to X's clipboard
 set pastetoggle=<F3>  " 복사 붙여넣기 모드 Toogle = <F3> --> 복붙시 계단현상 방지
 
 set shiftwidth=4 " 자동 들여쓰기 너비 설정
@@ -140,7 +140,7 @@ set t_Co=256 " 숫자 256의 color 표현 (8bit)
 set termguicolors
 autocmd vimenter * ++nested colorscheme gruvbox
 set background=dark
-let g:gruvbox_contrast_dark="medium"
+let g:gruvbox_contrast_dark="soft"
 
 " Vim indentline
 set list lcs=tab:\¦\ 
@@ -216,3 +216,7 @@ set completeopt-=preview   " unset preview window
 " YCM 과 syntastic 을 모두 사용할 경우 loc window 가 안켜지는 문제가 있다.
 " 따라서 하단의 옵션을 넣어주면 둘다 잘 작동함. 
 let g:ycm_show_diagnostics_ui = 0
+
+" autocompletion 사용 시 tab키를 제외하기 위함
+let g:ycm_key_list_select_completion = ['<leader><tab>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<leader><s-tab>', '<Up>']
