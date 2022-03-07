@@ -104,6 +104,8 @@ Plugin 'scrooloose/nerdtree'
 
 Plugin 'Xuyuanp/nerdtree-git-plugin' " nerdtree installation
 
+Plugin '42Paris/42header'			 " 42 header plugin
+
 "Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Yggdroot/indentLine' " 사용해보니 이게 더 나음
 
