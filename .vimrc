@@ -220,5 +220,5 @@ set completeopt-=preview   " unset preview window
 let g:ycm_show_diagnostics_ui = 0
 
 " autocompletion 사용 시 tab키를 제외하기 위함
-let g:ycm_key_list_select_completion = ['<leader><tab>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<leader><s-tab>', '<Up>']
+let g:ycm_key_list_select_completion = ['<S-Tab>' , '<Down>']
+let g:ycm_key_list_previous_completion = ['<Up>']
