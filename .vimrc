@@ -122,6 +122,7 @@ Plugin 'mengelbrecht/lightline-bufferline'
 
 " Nerdtree 로고 표시용 플러그인
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'bryanmylee/vim-colorscheme-icons'
 
 Plugin 'blueyed/vim-diminactive'
 
