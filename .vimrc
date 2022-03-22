@@ -117,8 +117,11 @@ Plugin 'tpope/vim-fugitive' " vim with git command(e.g., Gdiff)
 " air line 대신에 light line이 더 좋아보여서 이거 씀!
 Plugin 'itchyny/lightline.vim'
 
-" Plugin 'vim-airline/vim-airline' " vim status bar
-" Plugin 'vim-airline/vim-airline-themes'
+" lightline에 더해서 상단에 연 페이지 목록 보여주는 플러그인
+Plugin 'mengelbrecht/lightline-bufferline'
+
+" Nerdtree 로고 표시용 플러그인
+Plugin 'ryanoasis/vim-devicons'
 
 Plugin 'blueyed/vim-diminactive'
 
@@ -142,8 +145,6 @@ filetype plugin indent on    " required
 set t_Co=256 " 숫자 256의 color 표현 (8bit)
 
 " 테마 설정은 여기서!
-
-
 colorscheme onedark
 let g:lightline = {
   \ 'colorscheme': 'onedark',
@@ -232,3 +233,22 @@ let g:ycm_show_diagnostics_ui = 0
 " autocompletion 사용 시 tab키를 제외하기 위함
 let g:ycm_key_list_select_completion = ['<S-Tab>' , '<Down>']
 let g:ycm_key_list_previous_completion = ['<Up>']
+
+" vim lightline-bufferline 플러그인용 세팅 (상단 페이지 목록 표시)
+set showtabline=2
+let g:lightline = {
+      \ 'colorscheme': 'one',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'tabline': {
+      \   'left': [ ['buffers'] ],
+      \   'right': [ ['close'] ]
+      \ },
+      \ 'component_expand': {
+      \   'buffers': 'lightline#bufferline#buffers'
+      \ },
+      \ 'component_type': {
+      \   'buffers': 'tabsel'
+      \ }
+      \ }
