@@ -255,3 +255,40 @@ let g:lightline = {
       \ }
 
 
+" ------------------------------ 
+"  cursor diff in insert mode & normal mode
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+
+" reset the cursor on start (for older versions of vim, usually not required)
+augroup myCmds
+au!
+autocmd VimEnter * silent !echo -ne "\e[2 q"
+augroup END
+
+
+" ------------------------------ 
+" solution to caplock problem
+" ------------------------------ 
+"
+" ----- for macOS --------------------
+"  https://stackoverflow.com/questions/127591/using-caps-lock-as-esc-in-mac-os-x
+" -> use system preference -> turn of CAPSLOCK
+
+" ----- for linux ---------------------
+" https://vim.fandom.com/wiki/Insert-mode_only_Caps_Lock
+"
+" Execute 'lnoremap x X' and 'lnoremap X x' for each letter a-z.
+for c in range(char2nr('A'), char2nr('Z'))
+  execute 'lnoremap ' . nr2char(c+32) . ' ' . nr2char(c)
+  execute 'lnoremap ' . nr2char(c) . ' ' . nr2char(c+32)
+endfor
+
+" Kill the capslock when leaving insert mode.
+autocmd InsertLeave * set iminsert=0
+" ------------------------------ 
+
+
+
+
+
