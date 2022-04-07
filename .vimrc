@@ -25,12 +25,11 @@
 "																		  
 "   <tab>   : youcompleteme auto complete selection						  
 " -----------------------------------------------------------
-"
+
 let mapleader = ","			 " changing default leader-key <\> to <,>
 "한글 세팅"
 set encoding=utf-8
 set fileencodings=utf-8,cp949 "utf-8이 실패하면, cp949(en)로 인코딩
-
 set hlsearch " 검색어 하이라이팅
 set nu " 줄번호
 set scrolloff=2
@@ -145,17 +144,17 @@ filetype plugin indent on    " required
 
 set t_Co=256 " 숫자 256의 color 표현 (8bit)
 
+" ------------------------------------------
 " 테마 설정은 여기서!
-colorscheme onedark
+set background=dark
+autocmd vimenter * ++nested colorscheme onedark
+set termguicolors
 let g:lightline = {
   \ 'colorscheme': 'onedark',
   \ }
-" Gruv box setting
-" set termguicolors
-" autocmd vimenter * ++nested colorscheme gruvbox
-" set background=dark
-" let g:gruvbox_contrast_dark="soft"
-"
+" ------------------------------------------
+
+
 " Vim indentline
 set list lcs=tab:\¦\ 
 
@@ -170,14 +169,7 @@ let g:NERDTreeWinSize=30
 " for taglist <F12>
 nmap <F10> :TagbarToggle<CR>  
 let g:tagbar_width=30  " 태그바 넓이 설정
-
-" for vim-airline 이 플러그인은 창 상단과 하단에 정보들을 표시해줍니다
-" let g:airline_powerline_fonts = 1
-" let g:airline#extensions#tabline#enabled = 1 " turn on buffer list
-" let g:airline_theme='hybrid'
-"let g:airline_section_b = '%{strftime("%c")}'
-"let g:airline_section_y = 'BN: %{bufnr("%")}'
-"set laststatus=2 " turn on bottom bar
+set laststatus=2 " turn on bottom bar
 
 nnoremap <leader>q :bp<CR>  	 
 nnoremap <leader>w :bn<CR>
@@ -222,15 +214,14 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
  
 let g:syntastic_cpp_compiler = 'g++'
-let g:syntastic_cpp_compiler_options = "-std=c++11 -Wall -Wextra -Wpedantic -Werror"
-let g:syntastic_c_compiler_options = "-std=c11 -Wall -Wextra -Wpedantic -Werror"
+let g:syntastic_cpp_compiler_options = "-std=c++11 -Wall -Wextra -Werror"
+let g:syntastic_c_compiler_options = "-std=c11 -Wall -Wextra -Werror"
 
 " for YouCompleteMe Auto Completion 
 set completeopt-=preview   " unset preview window
 " YCM 과 syntastic 을 모두 사용할 경우 loc window 가 안켜지는 문제가 있다.
 " 따라서 하단의 옵션을 넣어주면 둘다 잘 작동함. 
 let g:ycm_show_diagnostics_ui = 0
-
 " autocompletion 사용 시 tab키를 제외하기 위함
 let g:ycm_key_list_select_completion = ['<S-Tab>' , '<Down>']
 let g:ycm_key_list_previous_completion = ['<Up>']
@@ -287,8 +278,5 @@ endfor
 " Kill the capslock when leaving insert mode.
 autocmd InsertLeave * set iminsert=0
 " ------------------------------ 
-
-
-
 
 
