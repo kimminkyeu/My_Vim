@@ -2,6 +2,9 @@
 "
 " -----------------------------------------------------------
 "
+"	 nerdtree 에서  vertical split	 = [s]
+"					horizontal split = [i]
+"
 "    ctrl + wf	: 사용하고 있는 헤더 파일 열기 
 "    ctrl + ]	: 해당 함수 정의 파일로 이동 (ctags -R 로 생성이 되어있어야함)
 "    ctrl + t   : 함수 정의 들어간 후 다시 돌아오기 
@@ -25,7 +28,7 @@
 "																		  
 "   <tab>   : youcompleteme auto complete selection						  
 " -----------------------------------------------------------
-
+"
 let mapleader = ","			 " changing default leader-key <\> to <,>
 "한글 세팅"
 set encoding=utf-8
