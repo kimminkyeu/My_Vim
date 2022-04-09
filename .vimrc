@@ -29,6 +29,8 @@
 "   <tab>   : youcompleteme auto complete selection						  
 " -----------------------------------------------------------
 "
+set t_u7=
+" set t_RV=
 let mapleader = ","			 " changing default leader-key <\> to <,>
 "한글 세팅"
 set encoding=utf-8
@@ -149,14 +151,19 @@ set t_Co=256 " 숫자 256의 color 표현 (8bit)
 
 " ------------------------------------------
 " 테마 설정은 여기서!
-set background=dark
-autocmd vimenter * ++nested colorscheme onedark
-set termguicolors
+
+colorscheme onedark
+if (has("termguicolors"))
+  set termguicolors
+endif
+" autocmd vimenter * ++nested colorscheme onedark
+" highlight clear SpellBad
+" highlight SpellBad cterm=underline ctermfg=red ctermbg=NONE guifg=#ff0000 guibg=#ffff00
+
 let g:lightline = {
   \ 'colorscheme': 'onedark',
   \ }
 " ------------------------------------------
-
 
 " Vim indentline
 set list lcs=tab:\¦\ 
@@ -206,19 +213,30 @@ let g:NERDTrimTrailingWhitespace = 1
 map <Leader>c<space> 	<plug>NERDCommenterToggle
 map <Leader>cs 		<plug>NERDCommenterSexy
 
+
+
 " for Syntastic Error Checking Engine
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
- 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
+let g:syntastic_loc_list_height = 5
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
- 
 let g:syntastic_cpp_compiler = 'g++'
 let g:syntastic_cpp_compiler_options = "-std=c++11 -Wall -Wextra -Werror"
 let g:syntastic_c_compiler_options = "-std=c11 -Wall -Wextra -Werror"
+let g:syntastic_enable_signs = 1
+let g:syntastic_auto_jump = 1
+let g:syntastic_error_symbol = '❌'
+let g:syntastic_style_error_symbol = '⁉️'
+let g:syntastic_warning_symbol = '⚠️'
+let g:syntastic_style_warning_symbol = '💩'
+
+highlight link SyntasticError SpellBad
+highlight link SyntasticWarning SpellCap
+
 
 " for YouCompleteMe Auto Completion 
 set completeopt-=preview   " unset preview window
