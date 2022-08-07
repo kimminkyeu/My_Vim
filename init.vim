@@ -47,7 +47,7 @@ set wildmode=longest,list
 set ts=4 "tag select
 set sts=4 "st select
 set sw=1 " 스크롤바 너비
-set mouse=a
+set mouse+=a
 set autowrite " 다른 파일로 넘어갈 때 자동 저장
 set autoread " 작업 중인 파일 외부에서 변경됬을 경우 자동으로 불러옴
 set autoindent " 자동 들여쓰기
@@ -160,7 +160,8 @@ Plug 'folke/todo-comments.nvim'
 " Information line
 Plug 'Yggdroot/indentLine'
 Plug 'itchyny/lightline.vim'
-Plug 'mengelbrecht/lightline-bufferline'
+"Plug 'mengelbrecht/lightline-bufferline'
+Plug 'romgrk/barbar.nvim'
 Plug 'blueyed/vim-diminactive'
 
 " Color Theme
@@ -168,6 +169,7 @@ Plug 'sainnhe/edge'
 
 " Icon Plugins
 Plug 'ryanoasis/vim-devicons'
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'bryanmylee/vim-colorscheme-icons'
 
 " 42 Plugins
@@ -268,9 +270,6 @@ let g:lightline = {
       \ 'component_function': {
       \   'gitbranch': 'fugitive#head'
       \ },
-      \ 'component_expand': {
-      \   'buffers': 'lightline#bufferline#buffers',
-      \ },
       \ 'component_type': {
       \   'buffers': 'tabsel'
       \ },
@@ -334,10 +333,11 @@ set signcolumn=yes
 
 let g:coc_global_extensions = ['coc-explorer', 'coc-json', 'coc-tsserver', 'coc-git']
 
-
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice.
-inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm()
+"
+" TODO: change here!
+inoremap <silent><expr> <s-TAB> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 function! CheckBackspace() abort

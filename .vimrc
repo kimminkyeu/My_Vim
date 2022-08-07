@@ -42,7 +42,7 @@ set wildmode=longest,list
 set ts=4 "tag select
 set sts=4 "st select
 set sw=1 " 스크롤바 너비
-set mouse=a
+set mouse+=a
 set autowrite " 다른 파일로 넘어갈 때 자동 저장
 set autoread " 작업 중인 파일 외부에서 변경됬을 경우 자동으로 불러옴
 set autoindent " 자동 들여쓰기
