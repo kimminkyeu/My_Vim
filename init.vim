@@ -6,19 +6,54 @@
 " ██ ██  ██ █████   ██    ██ ██    ██ ██ ██ ████ ██
 " ██  ██ ██ ██      ██    ██  ██  ██  ██ ██  ██  ██
 " ██   ████ ███████  ██████    ████   ██ ██      ██
+"                       minkyeki@student.42seoul.kr
+
+
+" -------------------------------------------------
+" |             General Key Settings              |
+" -------------------------------------------------
+
+" NOTE: Coc Gereral Key
+" -----------------------------------------------
+" [ Shift+k ]            : pop-up documentation on cursor
+" [ gd ]                 : go to function definition
+" [ gy ]                 : go to type-definition
+" [ gi ]                 : go to implementation
+" [ gr ]                 : go to help_tags
+" [ Space + c    ]       : Toggle CocList Command-list
+" [ Right 방향키 ]       : Coc Autocompletion Select
+
+
+" NOTE: Coc-Flutter Key
+" -----------------------------------------------
+" [ (,) + (a)    ]       : Coc Flutter CodeAction
+" [:flutter.run  ]       : run app
+
+
+" NOTE: NERD-Tree Key
+" -----------------------------------------------
+" <s>   : vertical split
+" <i>   : horizontal split
+
+
+" NOTE: Telescope Key
+" -----------------------------------------------
+" <Ctrl+f>    : Telescope fuzzy finder for file
+" <C-x>       : Go to file selection as a split
+" <C-v>       : Go to file selection as a vsplit
+" <C-t>       : Go to a file in a new tab
+" <leader> fg : Telescope live_grep<cr>
+" <leader> fb : Telescope buffers
+" <leader> fh : Telescope help
 
 
 
-" @(선택) Plug 를 init.vim 으로 연결하기
-"------------------------------------------------------
-"| :exe 'edit '.stdpath('config').'/init.vim'         |
-"------------------------------------------------------
-
-" @(중요) Todo Comment Lua 에러 발생은 ctrl+c 키맵 때문.
-" 따라서 아래 코드가 필수다.
-inoremap <C-c> <Esc> 
 
 
+
+" ---------------------------------
+" |     Available Comment TODOs   |
+" --------------------------------- 
 " NOTE: 
 " TODO:
 " WARNING: 
@@ -27,22 +62,12 @@ inoremap <C-c> <Esc>
 " HACK: 
 
 
-
-" ---------------------------------
-" |     General Key Settings      |
-" --------------------------------- 
-
-" (1) [shift+k]      : pop-up documentation on cursor
-" (2) [gd]           : go to function definition
-" (3) [:flutter.run] : run app --> https://github.com/iamcco/coc-flutter
-
-
-
-
 " ---------------------------------
 " |  Default Settings for NeoVim  |
 " --------------------------------- 
-
+"
+" (중요) Todo Comment Lua 에러 발생은 ctrl+c 키맵 설정 때문이므로  아래 코드가 필수다.
+inoremap <C-c> <Esc> 
 
 set t_u7=
 let mapleader = ","      " changing default leader-key <\> to <,>
@@ -105,11 +130,9 @@ nnoremap <leader>w :bn<CR>
 
 "  NOTE: Solution to caplock problem     
 "------------------------------------
-
 " For MacOS
 " https://stackoverflow.com/questions/127591/using-caps-lock-as-esc-in-mac-os-x
 " -> use system preference -> turn of CAPSLOCK
-
 " For linux
 " https://vim.fandom.com/wiki/Insert-mode_only_Caps_Lock         
 
@@ -165,10 +188,12 @@ Plug 'preservim/nerdcommenter'  " NERDComment plugin
 Plug 'nvim-lua/plenary.nvim'
 Plug 'folke/todo-comments.nvim'
 
+" Fuzzy Finder
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+
 " Information line
 Plug 'Yggdroot/indentLine'
 Plug 'itchyny/lightline.vim'
-"Plug 'mengelbrecht/lightline-bufferline'
 Plug 'romgrk/barbar.nvim'
 Plug 'blueyed/vim-diminactive'
 
@@ -185,7 +210,6 @@ Plug '42Paris/42header'
 
 " Flutter
 Plug 'dart-lang/dart-vim-plugin'
-
 
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
@@ -227,10 +251,16 @@ let g:NERDTrimTrailingWhitespace = 1
 map <Leader>c<space> 	<plug>NERDCommenterToggle
 map <Leader>cs 		<plug>NERDCommenterSexy
 
-" Vim indentline
+
+
+" NOTE: Vim indentline
+" ---------------------------------
 set list lcs=tab:\¦\ 
 
-" for ctags
+
+
+" NOTE: for ctags
+" ---------------------------------
 map <c-]> g<c-]>
 set tags=tags;
 
@@ -241,9 +271,6 @@ nmap <F9> :NERDTreeToggle<CR>
 let g:NERDTreeWinSize=40
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-" Start NERDTree when Vim is started without file arguments.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 
 
 " NOTE: for tagbar <F12>
@@ -350,7 +377,7 @@ let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-git', 'coc-clang
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice.
 " TODO: change here!
-inoremap <silent><expr> <s-TAB> coc#pum#visible() ? coc#pum#confirm()
+inoremap <silent><expr> <RIGHT> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 function! CheckBackspace() abort
@@ -372,9 +399,9 @@ endif
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
-" nmap <silent> gy <Plug>(coc-type-definition)
-" nmap <silent> gi <Plug>(coc-implementation)
-" nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call ShowDocumentation()<CR>
@@ -419,7 +446,7 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 nmap <leader>cl  <Plug>(coc-codelens-action)
 
 " Map function and class text objects
-" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+" Note: Requires 'textDocument.documentSymbol' support from the language server.
 xmap if <Plug>(coc-funcobj-i)
 omap if <Plug>(coc-funcobj-i)
 xmap af <Plug>(coc-funcobj-a)
@@ -454,7 +481,7 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
 
 " Add (Neo)Vim's native statusline support.
-" NOTE: Please see `:h coc-status` for integrations with external plugins that
+" Note: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
@@ -476,7 +503,9 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
+
 " NOTE:-Tree Sitter Syntax Highlight 
+" ---------------------------------
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { "c", "cpp", "lua", "dart", "markdown" },
@@ -486,3 +515,60 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 EOF
+
+
+" NOTE: Terminal plugin
+" ---------------------------------
+" No use...
+
+
+
+" NOTE: Telescope Fuzzy Finder
+" ---------------------------------
+" Find files using Telescope command-line sugar.
+nnoremap <C-f> <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+" <설정 참고>
+" https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#mapping-esc-to-quit-in-insert-mode
+
+lua <<EOF
+require('telescope').setup{
+  defaults = {
+    -- Default configuration for telescope goes here:
+    -- config_key = value,
+    mappings = {
+      i = {
+        -- map actions.which_key to <C-h> (default: <C-/>)
+        -- actions.which_key shows the mappings for your picker,
+        -- e.g. git_{create, delete, ...}_branch for the git_branches picker
+
+      }
+    }
+  },
+  pickers = {
+    -- Default configuration for builtin pickers goes here:
+    -- picker_name = {
+    --   picker_config_key = value,
+    --   ...
+    -- }
+    -- Now the picker_config_key will be applied every time you call this
+    -- builtin picker
+  },
+  extensions = {
+    -- Your extension configuration goes here:
+    -- extension_name = {
+    --   extension_config_key = value,
+    -- }
+    -- please take a look at the readme of the extension you want to configure
+  }
+}
+EOF
+
+
+
+" NOTE: Coc-Flutter-tools Code-action
+" ---------------------------------
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
