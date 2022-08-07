@@ -244,7 +244,7 @@ let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 let g:NERDDefaultAlign = 'left'
 let g:NERDAltDelims_java = 1
-let g:NERDCustomDelimiters = { 'c': { 'left': '/*','right': '*/' } }
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
 let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 " customize keymapping for NerdCommenter
@@ -363,6 +363,9 @@ let g:dart_format_on_save = 1
 " Some servers have issues with backup files, see #649.
 set nobackup
 set nowritebackup
+
+" 커서 사라짐 문제 해결.
+let g:coc_disable_transparent_cursor = 1
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
