@@ -27,8 +27,16 @@ inoremap <C-c> <Esc>
 " HACK: 
 
 
-" (1) [shift+k] : pop-up documentation on cursor
-" (2) [gd] : go to function definition
+
+" ---------------------------------
+" |     General Key Settings      |
+" --------------------------------- 
+
+" (1) [shift+k]      : pop-up documentation on cursor
+" (2) [gd]           : go to function definition
+" (3) [:flutter.run] : run app --> https://github.com/iamcco/coc-flutter
+
+
 
 
 " ---------------------------------
@@ -175,6 +183,8 @@ Plug 'bryanmylee/vim-colorscheme-icons'
 " 42 Plugins
 Plug '42Paris/42header'
 
+" Flutter
+Plug 'dart-lang/dart-vim-plugin'
 
 
 " Initialize plugin system
@@ -317,8 +327,12 @@ highlight link SyntasticWarning SpellCap
 
 
 
-" NOTE: CoC Autocompletion Setings.
+" NOTE: CoC Autocompletion + explorer Setings.
 " ---------------------------------
+
+" If you have dart-vim-plugin install, put this in your vimrc
+let g:dart_format_on_save = 1
+
 " Some servers have issues with backup files, see #649.
 set nobackup
 set nowritebackup
@@ -331,11 +345,10 @@ set updatetime=300
 " diagnostics appear/become resolved.
 set signcolumn=yes
 
-let g:coc_global_extensions = ['coc-explorer', 'coc-json', 'coc-tsserver', 'coc-git']
+let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-git', 'coc-clangd', 'coc-flutter', 'coc-markdownlint']
 
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice.
-"
 " TODO: change here!
 inoremap <silent><expr> <s-TAB> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
@@ -466,6 +479,7 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " NOTE:-Tree Sitter Syntax Highlight 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
+  ensure_installed = { "c", "cpp", "lua", "dart", "markdown" },
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
