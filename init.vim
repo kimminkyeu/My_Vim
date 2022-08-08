@@ -10,19 +10,34 @@
 
 
 " -------------------------------------------------
+" |  WARNING:  Dependencys for Plugin             |
+" -------------------------------------------------
+" (1) install Node.js for coc 
+"     : brew install node
+"
+" (2) install ripgrep for Telescope.live_grep
+"     : brew install ripgrep
+
+
+
+
+
+
+
+" -------------------------------------------------
 " |             General Key Settings              |
 " -------------------------------------------------
 
 " NOTE: Coc Gereral Key
 " -----------------------------------------------
 " [ Shift+k ]            : pop-up documentation on cursor
+" [ Right 방향키 ]       : Coc Autocompletion Select
 " [ gd ]                 : go to function definition
 " [ gy ]                 : go to type-definition
 " [ gi ]                 : go to implementation
 " [ gr ]                 : go to help_tags
-" [ Space + c    ]       : Toggle CocList Command-list
-" [ Right 방향키 ]       : Coc Autocompletion Select
-" [ = ]                  : coc-format-selected
+" [ Space + c ]          : Toggle CocList Command-list
+" [ = ]                  : coc-format-selected (기존 auto indent)
 
 
 " NOTE: Coc-Flutter Key
@@ -39,10 +54,15 @@
 
 " NOTE: Telescope Key
 " -----------------------------------------------
-" <Ctrl+f>    : Telescope file-browser
-" <C-t>       : Select + Go to a file in a new tab
+" <Ctrl+f>    : Telescope find-files
+" <Ctrl+d>    : Telescope file-browser (directory)
+" <Ctrl+g>    : Telescope live_grep
+
+" <Right>     : Select file
+" <C-t>       : Go to a file in a new tab
 " <C-x>       : Go to file selection as a split
 " <C-v>       : Go to file selection as a vsplit
+
 " <leader> fg : Telescope live_grep<cr>
 " <leader> fb : Telescope buffers
 " <leader> fh : Telescope help
@@ -167,6 +187,9 @@ call plug#begin()
 " Advanced Syntax highlight with tree-sitter parser
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+" Auto Pair () {} []
+Plug 'tmsvg/pear-tree'          " 괄호를 자동으로 닫아주는 플러그인
+
 " Error Checking Engine
 Plug 'vim-syntastic/syntastic' 
 
@@ -176,7 +199,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Git
 Plug 'airblade/vim-gitgutter'   " vim with git status(added, modified, and removed lines)
 Plug 'tpope/vim-fugitive'       " vim with git command(e.g., Gdiff)
-Plug 'tmsvg/pear-tree'          " 괄호를 자동으로 닫아주는 플러그인
 
 " NerdTree + Tagbar
 Plug 'majutsushi/tagbar'        " for ctag view window
@@ -193,11 +215,15 @@ Plug 'folke/todo-comments.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'nvim-telescope/telescope-file-browser.nvim'
 
-" Information line
+" Indent line
 Plug 'Yggdroot/indentLine'
+
+" Focus active window
+Plug 'blueyed/vim-diminactive'
+
+" Information line
 Plug 'itchyny/lightline.vim'
 Plug 'romgrk/barbar.nvim'
-Plug 'blueyed/vim-diminactive'
 
 " Color Theme
 Plug 'sainnhe/edge'
@@ -382,7 +408,7 @@ let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-git', 'coc-clang
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice.
 " TODO: change here!
-inoremap <silent><expr> <RIGHT> coc#pum#visible() ? coc#pum#confirm()
+inoremap <silent><expr> <Right> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 function! CheckBackspace() abort
@@ -531,8 +557,10 @@ EOF
 " NOTE: Telescope Fuzzy Finder
 " ---------------------------------
 " Find files using Telescope command-line sugar.
-nnoremap <C-f> <cmd>Telescope file_browser<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <C-f> <cmd>Telescope find_files<cr>
+nnoremap <C-d> <cmd>Telescope file_browser<cr>
+nnoremap <C-g> <cmd>Telescope live_grep<cr>
+
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 " <설정 참고>
@@ -545,6 +573,7 @@ require('telescope').setup{
     -- config_key = value,
     mappings = {
       i = {
+		["<Right>"] = require('telescope.actions').select_default
         -- map actions.which_key to <C-h> (default: <C-/>)
         -- actions.which_key shows the mappings for your picker,
         -- e.g. git_{create, delete, ...}_branch for the git_branches picker
