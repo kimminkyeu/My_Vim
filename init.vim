@@ -30,19 +30,20 @@
 
 " NOTE: Coc Gereral Key
 " -----------------------------------------------
-" [ Shift+k ]            : pop-up documentation on cursor
+" [ Shift + c ]          : Toggle CocList Command-list
+" [ Shift + k ]          : pop-up documentation on cursor
+
 " [ Right 방향키 ]       : Coc Autocompletion Select
 " [ gd ]                 : go to function definition
 " [ gy ]                 : go to type-definition
 " [ gi ]                 : go to implementation
 " [ gr ]                 : go to help_tags
-" [ Space + c ]          : Toggle CocList Command-list
 " [ = ]                  : coc-format-selected (기존 auto indent)
 
 
 " NOTE: Coc-Flutter Key
 " -----------------------------------------------
-" [ (,) + (a)    ]       : Coc Flutter CodeAction
+" [ leader (,) + shift + (a)    ]       : Coc Flutter CodeAction
 " [:flutter.run  ]       : run app
 
 
@@ -480,12 +481,13 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call ShowDocumentation()<CR>
 
 function! ShowDocumentation()
   if CocAction('hasProvider', 'hover')
-    call CocActionAsync('doHover')
+	call CocActionAsync('doHover')
   else
 	call feedkeys('K', 'in')
   endif
@@ -517,10 +519,10 @@ nmap <leader>a  <Plug>(coc-codeaction-selected)
 " Remap keys for applying codeAction to the current buffer.
 nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)
+" nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Run the Code Lens action on the current line.
-nmap <leader>cl  <Plug>(coc-codelens-action)
+" nmap <leader>cl  <Plug>(coc-codelens-action)
 
 " Map function and class text objects
 " Note: Requires 'textDocument.documentSymbol' support from the language server.
@@ -568,7 +570,7 @@ nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
 nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
 " Show commands.
-nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+nnoremap <silent><nowait> C         :<C-u>CocList commands<cr>
 " Find symbol of current document.
 nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
 " Search workspace symbols.
@@ -665,5 +667,5 @@ EOF
 
 " NOTE: Coc-Flutter-tools Code-action
 " ---------------------------------
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
+xmap <leader>A  <Plug>(coc-codeaction-selected)
+nmap <leader>A  <Plug>(coc-codeaction-selected)
