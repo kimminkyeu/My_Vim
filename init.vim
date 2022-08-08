@@ -39,10 +39,10 @@
 
 " NOTE: Telescope Key
 " -----------------------------------------------
-" <Ctrl+f>    : Telescope fuzzy finder for file
+" <Ctrl+f>    : Telescope file-browser
+" <C-t>       : Select + Go to a file in a new tab
 " <C-x>       : Go to file selection as a split
 " <C-v>       : Go to file selection as a vsplit
-" <C-t>       : Go to a file in a new tab
 " <leader> fg : Telescope live_grep<cr>
 " <leader> fb : Telescope buffers
 " <leader> fh : Telescope help
@@ -191,6 +191,7 @@ Plug 'folke/todo-comments.nvim'
 
 " Fuzzy Finder
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'nvim-telescope/telescope-file-browser.nvim'
 
 " Information line
 Plug 'Yggdroot/indentLine'
@@ -530,7 +531,7 @@ EOF
 " NOTE: Telescope Fuzzy Finder
 " ---------------------------------
 " Find files using Telescope command-line sugar.
-nnoremap <C-f> <cmd>Telescope find_files<cr>
+nnoremap <C-f> <cmd>Telescope file_browser<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
@@ -568,6 +569,13 @@ require('telescope').setup{
     -- please take a look at the readme of the extension you want to configure
   }
 }
+require("telescope").load_extension "file_browser"
+vim.api.nvim_set_keymap(
+  "n",
+  "<space>fb",
+  ":Telescope file_browser",
+  { noremap = true }
+)
 EOF
 
 
