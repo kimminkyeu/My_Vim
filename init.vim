@@ -22,6 +22,7 @@
 " [ gr ]                 : go to help_tags
 " [ Space + c    ]       : Toggle CocList Command-list
 " [ Right 방향키 ]       : Coc Autocompletion Select
+" [ = ]                  : coc-format-selected
 
 
 " NOTE: Coc-Flutter Key
@@ -424,8 +425,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+xmap =  <Plug>(coc-format-selected)
+nmap =  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
