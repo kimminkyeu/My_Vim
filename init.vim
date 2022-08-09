@@ -80,7 +80,7 @@
 " --------------------------------- 
 "
 " (중요) Todo Comment Lua 에러 발생은 ctrl+c 키맵 설정 때문이므로  아래 코드가 필수다.
-inoremap <C-c> <Esc> 
+inoremap <C-c> <C-c>
 
 set t_u7=
 let mapleader = ","      " changing default leader-key <\> to <,>
@@ -438,7 +438,7 @@ set updatetime=300
 " diagnostics appear/become resolved.
 set signcolumn=yes
 
-let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-git', 'coc-clangd', 'coc-markdownlint']
+let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-git', 'coc-clangd', 'coc-markdownlint', 'coc-flutter']
 
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice.
@@ -575,7 +575,7 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " ---------------------------------
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "c", "cpp", "lua", "markdown" },
+  ensure_installed = { "c", "cpp", "lua", "markdown"},
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
