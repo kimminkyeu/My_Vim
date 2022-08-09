@@ -20,10 +20,6 @@
 
 
 
-
-
-
-
 " -------------------------------------------------
 " |             General Key Settings              |
 " -------------------------------------------------
@@ -40,11 +36,6 @@
 " [ gr ]                 : go to help_tags
 " [ = ]                  : coc-format-selected (기존 auto indent)
 
-
-" NOTE: Coc-Flutter Key
-" -----------------------------------------------
-" [ leader (,) + shift + (a)    ]       : Coc Flutter CodeAction
-" [:flutter.run  ]       : run app
 
 
 " NOTE: NERD-Tree Key
@@ -236,9 +227,6 @@ Plug 'bryanmylee/vim-colorscheme-icons'
 
 " 42 Plugins
 Plug '42Paris/42header'
-
-" Flutter
-Plug 'dart-lang/dart-vim-plugin'
 
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
@@ -450,7 +438,7 @@ set updatetime=300
 " diagnostics appear/become resolved.
 set signcolumn=yes
 
-let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-git', 'coc-clangd', 'coc-flutter', 'coc-markdownlint']
+let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-git', 'coc-clangd', 'coc-markdownlint']
 
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice.
@@ -587,7 +575,7 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " ---------------------------------
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "c", "cpp", "lua", "dart", "markdown" },
+  ensure_installed = { "c", "cpp", "lua", "markdown" },
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
@@ -663,9 +651,3 @@ vim.api.nvim_set_keymap(
 )
 EOF
 
-
-
-" NOTE: Coc-Flutter-tools Code-action
-" ---------------------------------
-xmap <leader>A  <Plug>(coc-codeaction-selected)
-nmap <leader>A  <Plug>(coc-codeaction-selected)
