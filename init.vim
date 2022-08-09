@@ -241,6 +241,7 @@ Plug 'bryanmylee/vim-colorscheme-icons'
 " 42 Plugins
 Plug '42Paris/42header'
 
+Plug 'dart-lang/dart-vim-plugin'
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
 call plug#end()
