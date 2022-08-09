@@ -17,6 +17,8 @@
 "
 " (2) install ripgrep for Telescope.live_grep
 "     : brew install ripgrep
+"
+" (3) FIX: For coc-flutter development, run <TSUninstall dart> + <CocInstall coc-flutter>
 
 
 
@@ -28,6 +30,7 @@
 " -----------------------------------------------
 " [ Shift + c ]          : Toggle CocList Command-list
 " [ Shift + k ]          : pop-up documentation on cursor
+" NOTE : [ < , a > + Enter ] --> coc.code_action for Fluter
 
 " [ Right 방향키 ]       : Coc Autocompletion Select
 " [ gd ]                 : go to function definition
@@ -35,7 +38,6 @@
 " [ gi ]                 : go to implementation
 " [ gr ]                 : go to help_tags
 " [ = ]                  : coc-format-selected (기존 auto indent)
-
 
 
 " NOTE: NERD-Tree Key
