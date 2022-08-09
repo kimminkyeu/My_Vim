@@ -42,6 +42,8 @@
 
 " NOTE: NERD-Tree Key
 " -----------------------------------------------
+" <F9>  : toogle nerdtree (left window) 
+"         WARNING: to represh nerdtree, press <r>
 " <s>   : vertical split
 " <i>   : horizontal split
 
@@ -62,7 +64,15 @@
 " <leader> fh : Telescope help
 
 
+" NOTE: Gerneral
+" -----------------------------------------------
+" ,c<space>   : toggle NERD-normal-Comment
+" ,cs         : toggle NERD-Sexy-Comment
 
+" <F3>        : toggle paste mode
+" <,q>        : nerdtree + air-line -> open prev file
+" <,w>        : nerdtree + air-line -> open next file
+" <F10>       : toggle tagbar (right window)
 
 
 
@@ -180,11 +190,12 @@ call plug#begin()
 
 " Advanced Syntax highlight with tree-sitter parser
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'sheerun/vim-polyglot'    " additional Syntax Highlite plugin
 
 " Auto Pair () {} []
 Plug 'tmsvg/pear-tree'          " 괄호를 자동으로 닫아주는 플러그인
 
-" Error Checking Engine
+" Error Checking Engin
 Plug 'vim-syntastic/syntastic' 
 
 " Auto Completion + Error checking (with LSP)
