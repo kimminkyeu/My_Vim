@@ -18,8 +18,13 @@
 " (2) install ripgrep for Telescope.live_grep
 "     : brew install ripgrep
 "
-" (3) FIX: For coc-flutter development, run <TSUninstall dart> + <CocInstall coc-flutter>
+" (3) FIX: For coc-flutter development
+"     : run <TSUninstall dart> + <CocInstall coc-flutter>
 
+" (4) FIX: For <CR> (= pressing Enter) to invoke coc-autocompletion-select
+"     : 1. :verbose imap <CR>   --> check mapping status.
+"     : 2. delete evrey <CR> key maps set by other plugins.
+"          (ex. pear-tree)
 
 
 " -------------------------------------------------
@@ -30,8 +35,8 @@
 " -----------------------------------------------
 " [ Shift + c ]          : Toggle CocList Command-list
 " [ Shift + k ]          : pop-up documentation on cursor
-" NOTE : [ < , a > + Enter ] --> coc.code_action for Fluter
-
+" NOTE : [ < , a > + Enter ] --> coc.code_action (including flutter)
+" [ Ctrl + s ]           : Range select
 " [ Right 방향키 ]       : Coc Autocompletion Select
 " [ gd ]                 : go to function definition
 " [ gy ]                 : go to type-definition
@@ -457,7 +462,8 @@ let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-git', 'coc-clang
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice.
 " TODO: change here!
-inoremap <silent><expr> <Right> coc#pum#visible() ? coc#pum#confirm()
+
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 function! CheckBackspace() abort
