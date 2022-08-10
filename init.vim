@@ -1,95 +1,106 @@
+" ---------------------------------------------------------
+" |                                                       |
+" |   ███    ██ ███████  ██████  ██    ██ ██ ███    ███   |
+" |   ████   ██ ██      ██    ██ ██    ██ ██ ████  ████   |
+" |   ██ ██  ██ █████   ██    ██ ██    ██ ██ ██ ████ ██   |
+" |   ██  ██ ██ ██      ██    ██  ██  ██  ██ ██  ██  ██   |
+" |   ██   ████ ███████  ██████    ████   ██ ██      ██   |
+" |                         minkyeki@student.42seoul.kr   |
+" |                                                       |
+" ---------------------------------------------------------
 
 
-
-" ███    ██ ███████  ██████  ██    ██ ██ ███    ███
-" ████   ██ ██      ██    ██ ██    ██ ██ ████  ████
-" ██ ██  ██ █████   ██    ██ ██    ██ ██ ██ ████ ██
-" ██  ██ ██ ██      ██    ██  ██  ██  ██ ██  ██  ██
-" ██   ████ ███████  ██████    ████   ██ ██      ██
-"                       minkyeki@student.42seoul.kr
-
-
-" -------------------------------------------------
-" |  WARNING:  Dependencys for Plugin             |
-" -------------------------------------------------
-" (1) install Node.js for coc 
+" ---------------------------------------------------------
+" |  WARNING:  Dependencies for Plugin installation       |
+" ---------------------------------------------------------
+" (1) Install Node.js for coc 
 "     : brew install node
 "
-" (2) install ripgrep for Telescope.live_grep
+" (2) Install ripgrep for Telescope.live_grep
 "     : brew install ripgrep
 "
 " (3) FIX: For coc-flutter development
 "     : run <TSUninstall dart> + <CocInstall coc-flutter>
+"     : 현재 Tree-sitter dart에서 Segfault 발생함.
 
 " (4) FIX: For <CR> (= pressing Enter) to invoke coc-autocompletion-select
 "     : 1. :verbose imap <CR>   --> check mapping status.
 "     : 2. delete evrey <CR> key maps set by other plugins.
 "          (ex. pear-tree)
+"
+" (5) FIX: AutoCmd 실행 시 <hover-not-found> 메시지 출력 안되도록 설정
+"     : 1. coc-config.json 파일에 아래와 같이 추가한다. (따옴표도 넣기)
+         " <"coc.preferences.messageLevel" : error>
 
+" --------------------------------------------------------
+" |   General Key Settings                               |
+" --------------------------------------------------------
 
-" -------------------------------------------------
-" |             General Key Settings              |
-" -------------------------------------------------
-
-" NOTE: Coc Gereral Key
+" NOTE: Coc Key
 " -----------------------------------------------
-" [ Shift + c ]          : Toggle CocList Command-list
-" [ Shift + k ]          : pop-up documentation on cursor
-" NOTE : [ < , a > + Enter ] --> coc.code_action (including flutter)
-" [ Ctrl + s ]           : Range select
-" [ Right 방향키 ]       : Coc Autocompletion Select
-" [ gd ]                 : go to function definition
-" [ gy ]                 : go to type-definition
-" [ gi ]                 : go to implementation
-" [ gr ]                 : go to help_tags
-" [ = ]                  : coc-format-selected (기존 auto indent)
+" <Enter>              : Coc Autocompletion Select
+" <Shift+c>            : Toggle CocList Command-list
+" <Shift+k>            : pop-up documentation on cursor
+" <Ctrl+s>             : Range select
+" <(,)+(a)> + Enter    :coc.code_action (including flutter)
+" <gd>                 : go to function definition
+" <gy>                 : go to type-definition
+" <gi>                 : go to implementation
+" <gr>                 : go to help_tags
+" <=>                  : coc-format-selected (기존 auto indent)
 
 
-" NOTE: NERD-Tree Key
+" NOTE: NERD-Tree Key +  Tagbar
 " -----------------------------------------------
-" <F9>  : toogle nerdtree (left window) 
-"         WARNING: to represh nerdtree, press <r>
-" <s>   : vertical split
-" <i>   : horizontal split
-
+" WARNING: to represh nerdtree, press <r>
+" <F9>                 : toogle nerdtree (left window) 
+" <F10>                : toogle tagbar   (right window) 
+" <s>                  : vertical split
+" <i>                  : horizontal split
 
 " NOTE: Telescope Key
 " -----------------------------------------------
-" <Ctrl+f>    : Telescope find-files
-" <Ctrl+d>    : Telescope file-browser (directory)
-" <Ctrl+g>    : Telescope live_grep
+" <Ctrl+f>             : Telescope find-files
+" <Ctrl+d>             : Telescope file-browser (directory)
+" <Ctrl+g>             : Telescope live_grep
 
-" <Right>     : Select file
-" <C-t>       : Go to a file in a new tab
-" <C-x>       : Go to file selection as a split
-" <C-v>       : Go to file selection as a vsplit
+" <Enter>              : Select and open in a new tab
+" <C-t>                : Go to a file in a new tab
+" <C-x>                : Go to file selection as a split
+" <C-v>                : Go to file selection as a vsplit
 
-" <leader> fg : Telescope live_grep<cr>
-" <leader> fb : Telescope buffers
-" <leader> fh : Telescope help
+" <leader> fg          : Telescope live_grep<cr>
+" <leader> fb          : Telescope buffers
+" <leader> fh          : Telescope help
 
-
-" NOTE: Gerneral
+" NOTE: Gerneral Key
 " -----------------------------------------------
-" ,c<space>   : toggle NERD-normal-Comment
-" ,cs         : toggle NERD-Sexy-Comment
+" <F3>                 : toggle paste mode
+" <,q>                 : nerdtree + air-line -> open prev file
+" <,w>                 : nerdtree + air-line -> open next file
 
-" <F3>        : toggle paste mode
-" <,q>        : nerdtree + air-line -> open prev file
-" <,w>        : nerdtree + air-line -> open next file
-" <F10>       : toggle tagbar (right window)
+" NOTE: Comment
+" -----------------------------------------------
+" ,c<space>            : toggle NERD-normal-Comment
+" ,cs                  : toggle NERD-Sexy-Comment
+"
+" [Available Comment TODOs]
+" -  NOTE: 
+" -  TODO:
+" -  WARNING: 
+" -  WARN:
+" -  FIXME:
+" -  FIX:
+" -  PERF: 
+" -  HACK:
 
 
 
-" ---------------------------------
-" |     Available Comment TODOs   |
-" --------------------------------- 
-" NOTE: 
-" TODO:
-" WARNING: 
-" FIXME:
-" PERF: 
-" HACK: 
+
+
+
+
+
 
 
 " ---------------------------------
@@ -98,7 +109,6 @@
 "
 " (중요) Todo Comment Lua 에러 발생은 ctrl+c 키맵 설정 때문이므로  아래 코드가 필수다.
 inoremap <C-c> <C-c>
-
 set t_u7=
 let mapleader = ","      " changing default leader-key <\> to <,>
 set encoding=utf-8
@@ -177,10 +187,8 @@ autocmd InsertLeave * set iminsert=0
 
 
 
-
-
 "  NOTE: Plugin Settings for NeoVim      
-"-------------------------------------
+"-------------------------------------------------------------------------
 call plug#begin()
 " The default plugin directory will be as follows:
 "   - Vim (Linux/macOS): '~/.vim/plugged'
@@ -189,7 +197,6 @@ call plug#begin()
 " You can specify a custom plugin directory by passing it as the argument
 "   - e.g. `call plug#begin('~/.vim/plugged')`
 "   - Avoid using standard Vim directory names like 'plugin'
-
 " Make sure you use single quotes
 
 
@@ -246,7 +253,14 @@ Plug 'bryanmylee/vim-colorscheme-icons'
 " 42 Plugins
 Plug '42Paris/42header'
 
+" Dart
 Plug 'dart-lang/dart-vim-plugin'
+
+" Add below...
+
+
+
+
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
 call plug#end()
@@ -288,11 +302,9 @@ map <Leader>c<space> 	<plug>NERDCommenterToggle
 map <Leader>cs 		<plug>NERDCommenterSexy
 
 
-
 " NOTE: Vim indentline
 " ---------------------------------
 set list lcs=tab:\¦\ 
-
 
 
 " NOTE: for ctags
@@ -322,8 +334,6 @@ set laststatus=2 " turn on bottom bar
 let g:diminactive_enable_focus = 1
 " pear-tree 자동 괄호 완성 플러그인
 let g:pear_tree_repeatable_expand = 0 "오른쪽 제거 기능을 끔"
-
-
 
 
 " NOTE: lightline Config
@@ -461,8 +471,6 @@ let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-git', 'coc-clang
 
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice.
-" TODO: change here!
-
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
@@ -489,20 +497,22 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-
+"NOTE : 여기서 Cursor Hover 세팅 --------------------------------
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call ShowDocumentation()<CR>
-
+"WARNING: 만약 <no hover> 메시지가 버퍼에 계속 출력된다면...
+"WARNING: init.vim 최상단에 해결법을 적어두었으니 참고.
 function! ShowDocumentation()
   if CocAction('hasProvider', 'hover')
-	call CocActionAsync('doHover')
-  else
-	call feedkeys('K', 'in')
+    call CocActionAsync('doHover')
   endif
 endfunction
-
 " Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" (1) 입력 모드에서 특정 시간 동안 아무 키도 눌러지지 않을 때.
+autocmd CursorHoldI * silent call CocActionAsync('highlight')
+" (2) 특정 시간 동안 아무 것도 눌러지지 않을 때
+autocmd CursorHold * silent call ShowDocumentation()
+"NOTE: ----------------------------------------------- End -------
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
@@ -629,7 +639,7 @@ require('telescope').setup{
     -- config_key = value,
     mappings = {
       i = {
-		["<Right>"] = require('telescope.actions').select_default
+		["<CR>"] = require('telescope.actions').select_default
         -- map actions.which_key to <C-h> (default: <C-/>)
         -- actions.which_key shows the mappings for your picker,
         -- e.g. git_{create, delete, ...}_branch for the git_branches picker
@@ -670,4 +680,3 @@ vim.api.nvim_set_keymap(
   { noremap = true }
 )
 EOF
-
