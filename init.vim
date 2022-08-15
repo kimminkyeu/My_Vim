@@ -518,8 +518,9 @@ autocmd CursorHold * silent call ShowDocumentation()
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap =  <Plug>(coc-format-selected)
-nmap =  <Plug>(coc-format-selected)
+" FIX: nvim 자체 포맷팅과 겹치는 문제 발생해서 그냥 끔.
+" xmap =  <Plug>(coc-format-selected)
+" nmap =  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
