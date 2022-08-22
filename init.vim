@@ -511,7 +511,7 @@ endfunction
 " (1) 입력 모드에서 특정 시간 동안 아무 키도 눌러지지 않을 때.
 autocmd CursorHoldI * silent call CocActionAsync('highlight')
 " (2) 특정 시간 동안 아무 것도 눌러지지 않을 때
-autocmd CursorHold * silent call ShowDocumentation()
+" autocmd CursorHold * silent call ShowDocumentation()
 "NOTE: ----------------------------------------------- End -------
 
 " Symbol renaming.
