@@ -448,7 +448,7 @@ highlight link SyntasticWarning SpellCap
 
 " NOTE: CoC Autocompletion + explorer Setings.
 " ---------------------------------
-
+let b:coc_diagnostic_disable = 1
 " If you have dart-vim-plugin install, put this in your vimrc
 let g:dart_format_on_save = 1
 
