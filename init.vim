@@ -208,7 +208,7 @@ Plug 'sheerun/vim-polyglot'    " additional Syntax Highlite plugin
 Plug 'tmsvg/pear-tree'          " 괄호를 자동으로 닫아주는 플러그인
 
 " Error Checking Engin
-" Plug 'vim-syntastic/syntastic'
+Plug 'vim-syntastic/syntastic'
 
 " Auto Completion + Error checking (with LSP)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -427,24 +427,24 @@ let bufferline.no_name_title = v:null
 
 " FIX: for Syntastic Error Checking Engine --> Deprecated!
 " ---------------------------------
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-" let g:syntastic_c_remove_include_errors = 1
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_loc_list_height = 5
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_cpp_compiler = 'clang++'
-" let g:syntastic_cpp_compiler_options = "-std=c++98 -Wall -Wextra -Werror"
-" let g:syntastic_c_compiler_options = "-std=gnu99 -Wall -Wextra -Werror"
-" let g:syntastic_enable_signs = 1
-" let g:syntastic_auto_jump = 1
-" let g:syntastic_warning_symbol = '⚠️'
-" " let g:syntastic_cpp_remove_include_errors = 1
-" highlight link SyntasticError SpellBad
-" highlight link SyntasticWarning SpellCap
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_c_remove_include_errors = 1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_loc_list_height = 5
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = "-std=c++98 -Wall -Wextra -Werror"
+let g:syntastic_c_compiler_options = "-std=gnu99 -Wall -Wextra -Werror"
+let g:syntastic_enable_signs = 1
+let g:syntastic_auto_jump = 1
+let g:syntastic_warning_symbol = '⚠️'
+" let g:syntastic_cpp_remove_include_errors = 1
+highlight link SyntasticError SpellBad
+highlight link SyntasticWarning SpellCap
 
 
 " NOTE: CoC Autocompletion + explorer Setings.
