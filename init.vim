@@ -425,11 +425,12 @@ let bufferline.letters =
 " where X is the buffer number. But only a static string is accepted here.
 let bufferline.no_name_title = v:null
 
-" NOTE: for Syntastic Error Checking Engine
+" FIX: for Syntastic Error Checking Engine --> Deprecated!
 " ---------------------------------
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
 " set statusline+=%*
+" let g:syntastic_c_remove_include_errors = 1
 " let g:syntastic_always_populate_loc_list = 1
 " let g:syntastic_auto_loc_list = 1
 " let g:syntastic_loc_list_height = 5
@@ -441,9 +442,9 @@ let bufferline.no_name_title = v:null
 " let g:syntastic_enable_signs = 1
 " let g:syntastic_auto_jump = 1
 " let g:syntastic_warning_symbol = '⚠️'
+" " let g:syntastic_cpp_remove_include_errors = 1
 " highlight link SyntasticError SpellBad
 " highlight link SyntasticWarning SpellCap
-"
 
 
 " NOTE: CoC Autocompletion + explorer Setings.

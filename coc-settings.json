@@ -1,8 +1,14 @@
 {
-	"coc.preferences.messageLevel" : "error",
+	"coc.preferences.messageLevel" : "warning",
 	"coc.preferences.rootPatterns": [
 		"compile_flags.txt"
 	],
+	"coc.preferences.currentFunctionSymbolAutoUpdate": true,
+	"diagnostic.errorSign": "✖",
+    "diagnostic.warningSign": "⚠",
+    "diagnostic.infoSign": "ℹ",
+    "diagnostic.hintSign": "➤",
 	"codeLens.enable": true,
+	"signature.enable": true,
 	"diagnostic.virtualText": true
 }
