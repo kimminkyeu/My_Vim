@@ -243,7 +243,9 @@ Plug 'itchyny/lightline.vim'
 Plug 'romgrk/barbar.nvim'
 
 " Color Theme
-Plug 'sainnhe/edge'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
+" Rainbow Bracket
+Plug 'luochen1990/rainbow'
 
 " Icon Plugins
 Plug 'ryanoasis/vim-devicons'
@@ -253,8 +255,9 @@ Plug 'bryanmylee/vim-colorscheme-icons'
 " 42 Plugins
 Plug '42Paris/42header'
 
-" Dart
-Plug 'dart-lang/dart-vim-plugin'
+" ASM Syntax Highlight
+Plug 'shirk/vim-gas'
+
 
 " Add below...
 
@@ -272,12 +275,14 @@ call plug#end()
 
 " NOTE: Theme setting
 " ---------------------------------
-let g:edge_style = 'aura'
-let g:edge_better_performance = 1
-colorscheme edge
+colorscheme onehalfdark
 if (has("termguicolors"))
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
+" Rainbow bracket
+let g:rainbow_active = 1
 
 
 " NOTE: Todo comments setting
@@ -340,7 +345,7 @@ let g:pear_tree_repeatable_expand = 0 "오른쪽 제거 기능을 끔"
 " ---------------------------------
 set noshowmode "vim airline 플러그인에서 모드를 알려주기 때문에 해제합니다.
 let g:lightline = { 
-	  \ 'colorscheme': 'edge',
+	  \ 'colorscheme': 'onehalfdark',
 	  \ 'enable': {'statusline': 1, 'tabline': 0},
 	  \ 'component_function': {
 	                        \  'gitbranch': 'fugitive#head'
@@ -534,7 +539,7 @@ set updatetime=300
 " diagnostics appear/become resolved.
 set signcolumn=yes
 
-let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-git', 'coc-clangd', 'coc-markdownlint', 'coc-flutter']
+let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-html', 'coc-sh', 'coc-cmake', 'coc-git', 'coc-clangd', 'coc-markdownlint']
 
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice.
