@@ -272,6 +272,15 @@ call plug#end()
 "   syntax off            " Disable syntax highlighting
 "------------------------------------------------------------------
 
+" NOTE: NASM filetype setting
+" ---------------------------------
+augroup nasm_ft
+  au!
+  autocmd BufNewFile,BufRead *.s set filetype=nasm
+  autocmd BufNewFile,BufRead *.asm set filetype=nasm
+augroup END
+
+
 
 " NOTE: Theme setting
 " ---------------------------------
